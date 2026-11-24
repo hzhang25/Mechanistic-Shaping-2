@@ -20,7 +20,7 @@ env:
 gen:
   temperature: 1.0               # NOT FROM PAPER
   top_p: 1.0                     # NOT FROM PAPER
-  max_new_tokens: 384            # NOT FROM PAPER: per assistant turn (thinking disabled)
+  max_new_tokens: 512            # NOT FROM PAPER: per assistant turn (thinking disabled)
   max_seq_len: 4096              # NOT FROM PAPER
   gen_batch_size: 64             # throughput only
 
