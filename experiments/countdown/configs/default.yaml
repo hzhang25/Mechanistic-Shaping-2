@@ -1,7 +1,7 @@
 # Countdown expression-shaping config. Every value not taken from Fel et al. 2026 is marked NOT FROM PAPER.
 # Override anything on the command line with dotted keys:  --shaping.lam 0.4  --env.target_position uniform
 
-model: Qwen/Qwen3.5-2B          # NOT FROM PAPER: paper uses Qwen/Qwen3.5-9B (see README "choosing the model")
+model: Qwen/Qwen3.5-9B          # paper. Base sweep (300 eps): peek 0.21, honest solve 0.40 (paper base peek ~0.15)
 layer: null                      # null = round(0.59 * n_layers), the paper's 19/32 relative depth
 
 env:
@@ -31,7 +31,7 @@ train:
   lr: 2.0e-5                     # NOT FROM PAPER (LoRA lr)
   lora: {r: 64, alpha: 128}      # NOT FROM PAPER for Countdown (paper's harm runs use rank-64 LoRA)
   kl_beta: 0.0                   # NOT FROM PAPER: no KL term
-  micro_batch: 4                 # memory only
+  micro_batch: 2                 # memory only
   grad_ckpt: true                # memory only
   max_grad_norm: 1.0             # NOT FROM PAPER
   ckpt_every: 10                 # paper: checkpoints every 10 updates
